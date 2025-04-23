@@ -29,23 +29,21 @@ class Employee {
         return this.hoursWorked * this.payRate;
     }
 
-    // Setter
-    public void setId(int id) {
-        this.employeeId = id;
-    }
 }
 
 public class Main {
     public static void main(String[] args) {
         try {
+            //FileReader reads the file character by character.BufferedReader wraps around it to read full lines efficiently.//
             BufferedReader reader = new BufferedReader(new FileReader("employes.csv"));
 
-            // Skip header line
+            // Skip the first line (header)This will read and ignore the header line//
             reader.readLine();
 
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split("\\|");
+//                System.out.println(fields);
 
                 int id = Integer.parseInt(fields[0]);
                 String name = fields[1];
